@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="custom.css">
+
     <link href="/static/fontawesome/css/all.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-nav">
 
         <div class="container-fluid">
 
@@ -29,7 +30,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="artigos.html">
                             <h2>
-                                <span class="badge bg-secondary">Artigos</span>
+                                <span class="badge bg-light" style="color:black">Artigos</span>
                             </h2>
                         </a>
                     </li>
@@ -37,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">
                             <h2>
-                                <span class="badge bg-secondary">Quiz</span>
+                                <span class="badge bg-light" style="color:black">Quiz</span>
                             </h2>
                         </a>
                     </li>
@@ -45,14 +46,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="sobre.html">
                             <h2>
-                                <span class="badge bg-secondary">Sobre</span>
+                                <span class="badge bg-light" style="color:black">Sobre</span>
                             </h2>
                         </a>
                     </li>
 
                 </ul>
 
-                <a class="navbar-brand" href="index.html">Nome do Site Aqui</a>
+                <img class="navbar-brand" src="img/brain_ico.png" href="index.html" width="60" height="60"></img>
+                <a class="navbar-brand" href="index.html" style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 40px; font-weight: 700;">AlegreMente</a>
 
             </div>
 
@@ -60,72 +62,102 @@
 
     </nav>
 
-    <div class="container">
+    <div style="background-color: #c2daff;">
 
         <br>
 
+        <h2 class="text-center">Quiz - Será que você corre o risco de ter burnout?</h2>
+
+        <br>
+
+        <div class="container">
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progresso" role="progressbar"
+                    aria-label="Example with label" style="width: 4%;" aria-valuemin="0" aria-valuemax="100">
+                    1/21
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h5 class="text-center" id="enunciado">"Tenho problemas de sono, insônia e/ou não me sinto
+            descansado(a) após uma noite de sono"</h5>
+
+        <br>
+
+    </div>
+
+    <div class="container">
+
+
         <div class="row" id="divquestoes">
 
-            <div class="col-12 text-center">
-
-                <h2>Quiz - Será que você corre o risco de ter burnout?</h2>
+            <div class="col-12">
 
                 <br>
 
-                <div class="progress">
-                    <div
-                        class="progress-bar progress-bar-striped progress-bar-animated"
-                        id="progresso"
-                        role="progressbar"
-                        aria-label="Example with label"
-                        style="width: 4%;"
-                        aria-valuemin="0"
-                        aria-valuemax="100">
-                        1/21
+                <p class="text-center">Marque a resposta correspondente à frase que melhor descreve a frequência:</p>
+
+                <div class="row">
+                    <div class="col-4 d-flex align-items-end">
+                        <button type="button" id="ant" class="btn btn-lg btn-primary"
+                            onclick="anterior()">ANTERIOR</button>
                     </div>
+
+                    <div class="col-4">
+
+                        <div class="funkyradio">
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn0" onchange="clickRadio();" />
+                                <label for="btn0">Nunca.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn1" onchange="clickRadio();" style="content: 0;">
+                                <label for="btn1">Algumas vezes no ano ou menos.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn2" onchange="clickRadio();" />
+                                <label for="btn2">1x ao mês ou menos.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn3" onchange="clickRadio();" />
+                                <label for="btn3">Algumas vezes no mês.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn4" onchange="clickRadio();" />
+                                <label for="btn4">1x na semana.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn5" onchange="clickRadio();" />
+                                <label for="btn5">Algumas vezes na semana.</label>
+                            </div>
+
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="radio" id="btn6" onchange="clickRadio();" />
+                                <label for="btn6">Todos os dias.</label>
+                            </div>
+
+                            <br>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-4 d-flex align-items-end flex-row-reverse">
+                        <button type="button" id="prox" class="btn btn-lg btn-primary"
+                            onclick="proxima()">PRÓXIMO</button>
+                    </div>
+
                 </div>
-
-                <br>
-
-                <h4 id="enunciado">1) Tenho problemas de sono, insônia e/ou não me sinto descansado(a) após uma noite de sono.</h4>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn0" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn0">Nunca</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn1" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn1">Algumas vezes no ano ou menos</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn2" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn2">1x ao mês ou menos</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn3" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn3">Algumas vezes no mês</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn4" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn4">Semanalmente</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn5" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn5">Algumas vezes na semana</label>
-                </div>
-
-                <div class="row my-1">
-                    <input type="radio" class="btn-check" name="options" id="btn6" autocomplete="off" onchange="clickRadio();">
-                    <label class="btn btn-outline-primary" for="btn6">Todos os dias</label>
-                </div>
-
-                <button type="button" id="ant" class="btn btn-lg btn-success" onclick="anterior()">Anterior</button>
-                <button type="button" id="prox" class="btn btn-lg btn-success" onclick="proxima()">Próximo</button>
 
             </div>
 
@@ -133,7 +165,7 @@
 
         <div id="divresultado" class="container">
             <div class="wrapper bg-white rounded">
-        
+
                 <div class="content">
                     <p id="titulo" class="text-justify h5 pb-2 font-weight-bold">Titulo</p>
                     <p id="texto" class="text-justify">texto</p>
@@ -143,8 +175,9 @@
 
                 <p>Colocar mais alguma coisa aqui, achei muito vazio kkk</p>
 
-                <button type="button" id="ant" class="btn btn-lg btn-success" onclick="inicio()">Revisar respostas</button>
-                
+                <button type="button" id="ant" class="btn btn-lg btn-success" onclick="inicio()">Revisar
+                    respostas</button>
+
             </div>
         </div>
 
@@ -156,38 +189,38 @@
 
     document.getElementById("ant").style.visibility = "hidden";
     document.getElementById("prox").style.visibility = "hidden";
-    
+
     document.getElementById("divresultado").style.display = "none";
 
-    const enunciados = ["1) Tenho problemas de sono, insônia e/ou não me sinto descansado(a) após uma noite de sono.",
-        "2) Me sinto emocionalmente e fisicamente exausto(a).",
-        "3) Estou sofrendo infecções, inflamações e dores em geral.",
-        "4) Sinto que não estou entregando ou realizando o suficiente.",
-        "5) Estou frustrado(a) com os resultados do meu trabalho.",
-        "6) Sinto-me muito pressionado pelas expectativas dos outros sobre mim.",
-        "7) De alguma forma, não tenho me sentido eu mesmo(a).",
-        "8) Me desconectei das coisas que mais gosto de fazer e que me dão prazer.",
-        "9) Sinto que preciso abrir mão dos meus valores ou da minha identidade para poder chegar aonde quero.",
-        "10) Estou mais devagar e menos eficiente do que o normal.",
-        "11) Tenho esquecido das coisas com facilidade.",
-        "12) Me sinto preso(a) em uma rotina caótica, não tenho controle sobre as horas do meu dia.",
-        "13) Tenho me isolado de outras pessoas, especialmente das mais próximas de mim.",
-        "14) Me sinto sugado(a) quando preciso trabalhar em equipe ou rodeada de pessoas.",
-        "15) Não tenho energia/tempo para estar com a minha família e amigos.",
-        "16) Tenho me sentido com pavio curto, mais irritadiço(a) do que o normal.",
-        "17) Estou cético(a) quando ao meu trabalho, meus colegas/cliente/indústria.",
-        "18) Preciso me distrair com álcool, drogas, comida, compras, TV, redes sociais ou outro vício que eu sei que não me faz bem.",
-        "19) Sinto que o meu trabalho não faz diferença nenhuma.",
-        "20) Não enxergo o porquê de estar fazendo o que faço.",
-        "21) Não sei para onde estou indo na minha vida/no meu trabalho."
+    const enunciados = ["\"Tenho problemas de sono, insônia e/ou não me sinto descansado(a) após uma noite de sono\"",
+        "\"Me sinto emocionalmente e fisicamente exausto(a)\"",
+        "\"Estou sofrendo infecções, inflamações e dores em geral\"",
+        "\"Sinto que não estou entregando ou realizando o suficiente\"",
+        "\"Estou frustrado(a) com os resultados do meu trabalho\"",
+        "\"Sinto-me muito pressionado pelas expectativas dos outros sobre mim\"",
+        "\"De alguma forma, não tenho me sentido eu mesmo(a)\"",
+        "\"Me desconectei das coisas que mais gosto de fazer e que me dão prazer\"",
+        "\"Sinto que preciso abrir mão dos meus valores ou da minha identidade para poder chegar aonde quero\"",
+        "\"Estou mais devagar e menos eficiente do que o normal\"",
+        "\"Tenho esquecido das coisas com facilidade\"",
+        "\"Me sinto preso(a) em uma rotina caótica, não tenho controle sobre as horas do meu dia\"",
+        "\"Tenho me isolado de outras pessoas, especialmente das mais próximas de mim\"",
+        "\"Me sinto sugado(a) quando preciso trabalhar em equipe ou rodeada de pessoas\"",
+        "\"Não tenho energia/tempo para estar com a minha família e amigos\"",
+        "\"Tenho me sentido com pavio curto, mais irritadiço(a) do que o normal\"",
+        "\"Estou cético(a) quando ao meu trabalho, meus colegas/cliente/indústria\"",
+        "\"Preciso me distrair com álcool, drogas, comida, compras, TV, redes sociais ou outro vício que eu sei que não me faz bem\"",
+        "\"Sinto que o meu trabalho não faz diferença nenhuma\"",
+        "\"Não enxergo o porquê de estar fazendo o que faço\"",
+        "\"Não sei para onde estou indo na minha vida/no meu trabalho\""
     ];
 
     let pergunta = 0;
 
-    let respostas = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+    let respostas = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 
     function atualizarBarra() {
-        
+
         let respondidas = 0;
 
         for (const r of respostas) {
@@ -197,9 +230,9 @@
         }
 
         let barra = document.getElementById("progresso");
-        
-        barra.style = "width: " + Math.trunc(100*(respondidas+1)/21) + "%;";
-        barra.innerHTML = respondidas+1 + "/21";
+
+        barra.style = "width: " + Math.trunc(100 * (respondidas + 1) / 21) + "%;";
+        barra.innerHTML = respondidas + 1 + "/21";
     }
 
     function preencherMemoria() {
@@ -240,7 +273,7 @@
         var check5 = document.getElementById("btn5").checked;
         var check6 = document.getElementById("btn6").checked;
 
-        apagarBotoes();
+        //apagarBotoes();
 
         if (check0) {
             respostas[pergunta] = 0;
