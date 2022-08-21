@@ -39,6 +39,7 @@
 
 
 
+
 .funkyradio div {
     clear: both;
     overflow: hidden;
@@ -81,7 +82,7 @@
     content: '';
     width: 2.5em;
     background: #D1D3D4;
-    border-radius: 3px 0 0 3px;
+    border-radius: 8px 8px 8px 8px;
 }
 
 .funkyradio input[type="radio"]:hover:not(:checked)~label,
@@ -102,7 +103,9 @@
 
 .funkyradio input[type="radio"]:checked~label:before,
 .funkyradio input[type="checkbox"]:checked~label:before {
-    text-indent: .6em;
+    content: '✓';
+    font-family: cursive;
+    text-indent: .9em;
     color: #333;
     background-color: #ccc;
 }

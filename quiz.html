@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AlegreMente</title>
     <!-- CSS only -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="custom.css">
 
     <link href="/static/fontawesome/css/all.css" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="img/brain_ico.png">
 </head>
 
 <body>
@@ -28,27 +30,23 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="artigos.html">
-                            <h2>
-                                <span class="badge bg-light" style="color:black">Artigos</span>
-                            </h2>
-                        </a>
+                        &nbsp
+                        &nbsp
+                        &nbsp
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <h2>
-                                <span class="badge bg-light" style="color:black">Quiz</span>
-                            </h2>
-                        </a>
+                        <a class="btn btn-lg btn-light rounded-pill" href="artigos.html" type="button"  style="font-weight: 600;">ARTIGOS</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="sobre.html">
-                            <h2>
-                                <span class="badge bg-light" style="color:black">Sobre</span>
-                            </h2>
-                        </a>
+                        &nbsp
+                        &nbsp
+                        &nbsp
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-lg btn-light rounded-pill" href="sobre.html" type="button"  style="font-weight: 600;">SOBRE</a>
                     </li>
 
                 </ul>
@@ -62,7 +60,7 @@
 
     </nav>
 
-    <div style="background-color: #c2daff;">
+    <div id="cabecalho" style="background-color: #c2daff;">
 
         <br>
 
@@ -73,7 +71,7 @@
         <div class="container">
 
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progresso" role="progressbar"
+                <div class="progress-bar" id="progresso" role="progressbar"
                     aria-label="Example with label" style="width: 4%;" aria-valuemin="0" aria-valuemax="100">
                     1/21
                 </div>
@@ -163,23 +161,27 @@
 
         </div>
 
-        <div id="divresultado" class="container">
-            <div class="wrapper bg-white rounded">
+            <div id="divresultado" class="wrapper bg-white rounded">
 
-                <div class="content">
-                    <p id="titulo" class="text-justify h5 pb-2 font-weight-bold">Titulo</p>
-                    <p id="texto" class="text-justify">texto</p>
+                <br>
+
+                <div class="row">
+
+                    <div id="carinha" class="col-6">
+                        
+                    </div>
+                    
+                    <div class="col-6 text-center">
+
+                        <div id="recomendacao">
+                            
+                        </div>
+                        
+                        <button type="button" id="ant" class="btn btn-lg btn-primary rounded-pill" onclick="inicio()">Revisar respostas</button>
+                    </div>
                 </div>
 
-                <p>Leia nossos artigos!!! :)</p>
-
-                <p>Colocar mais alguma coisa aqui, achei muito vazio kkk</p>
-
-                <button type="button" id="ant" class="btn btn-lg btn-success" onclick="inicio()">Revisar
-                    respostas</button>
-
             </div>
-        </div>
 
     </div>
 
@@ -329,34 +331,36 @@
         document.getElementById("ant").style.visibility = "visible";
 
         // Finalizar as perguntas preencher a div de resposta
-        if (pergunta >= 20) {
+        if (pergunta >= 0) {//20) {
 
             // Somar os pontos
             let pontos = respostas.reduce((partialSum, a) => partialSum + a, 0);;
 
             document.getElementById("divquestoes").style.display = "none";
+            document.getElementById("cabecalho").style.display = "none";
+            
             document.getElementById("divresultado").style.display = "block";
 
             // PONTOS
             if (pontos <= 20) {
-                document.getElementById("titulo").innerHTML = "Nível 1";
-                document.getElementById("texto").innerHTML = "Você está indo muito bem! Continue assim.";
+                document.getElementById("carinha").innerHTML = '<image src="img/quiz/output1_ilustra.png" class="img-fluid"></image>';
+                document.getElementById("recomendacao").innerHTML = '<image src="img/quiz/output1_texto.png" class="img-fluid"></image>';
             }
             else if (pontos <= 52) {
-                document.getElementById("titulo").innerHTML = "Nível 2";
-                document.getElementById("texto").innerHTML = "No geral, bons indicadores, mas alguns pontos podem melhorar ainda mais.";
+                document.getElementById("carinha").innerHTML = '<image src="img/quiz/output2_ilustra.png" class="img-fluid"></image>';
+                document.getElementById("recomendacao").innerHTML = '<image src="img/quiz/output2_texto.png" class="img-fluid"></image>';
             }
             else if (pontos <= 72) {
-                document.getElementById("titulo").innerHTML = "Nível 3";
-                document.getElementById("texto").innerHTML = "Você está na média - procure melhorar esses indicadores para reduzir riscos.";
+                document.getElementById("carinha").innerHTML = '<image src="img/quiz/output3_ilustra.png" class="img-fluid"></image>';
+                document.getElementById("recomendacao").innerHTML = '<image src="img/quiz/output3_texto.png" class="img-fluid"></image>';
             }
             else if (pontos <= 104) {
-                document.getElementById("titulo").innerHTML = "Nível 4";
-                document.getElementById("texto").innerHTML = "Seus indicadores estão um pouco preocupantes. Cuidado!";
+                document.getElementById("carinha").innerHTML = '<image src="img/quiz/output4_ilustra.png" class="img-fluid"></image>';
+                document.getElementById("recomendacao").innerHTML = '<image src="img/quiz/output4_texto.png" class="img-fluid"></image>';
             }
             else {
-                document.getElementById("titulo").innerHTML = "Nível 5";
-                document.getElementById("texto").innerHTML = "Você precisa do apoio de um profissional de saúde1 Suas respostas indicam potencial de estresse crônico ou até burnout.";
+                document.getElementById("carinha").innerHTML = '<image src="img/quiz/output5_ilustra.png" class="img-fluid"></image>';
+                document.getElementById("recomendacao").innerHTML = '<image src="img/quiz/output5_texto.png" class="img-fluid"></image>';
             }
 
         }
